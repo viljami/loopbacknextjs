@@ -1,0 +1,19 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "jsx-a11y"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "globals": {
+    "console": true,
+    "module": true,
+    "process": true,
+    "require": true
+  }
+}
