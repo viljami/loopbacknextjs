@@ -2,25 +2,43 @@
   "name": "nextsite",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build && next export",
-    "start": "NODE_ENV=production node server.js"
+    "dev": "NODE_ENV=development node --experimental-modules .",
+    "build": "npm-run-all --parallel build:server build:client",
+    "build:client": "next build client",
+    "build:server": "lb-tsc es2017 --outDir server/dist -p server",
+    "start": "node --experimental-modules .",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@loopback/boot": "^1.1.3",
+    "@loopback/context": "^1.9.0",
+    "@loopback/core": "^1.3.0",
+    "@loopback/openapi-v3": "^1.3.3",
+    "@loopback/repository": "^1.3.0",
+    "@loopback/rest": "^1.10.0",
+    "@loopback/rest-explorer": "^1.1.14",
+    "@loopback/service-proxy": "^1.1.2",
+    "express": "^4.16.4",
+    "next": "^8.0.4",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
   "devDependencies": {
+    "@loopback/build": "^1.4.1",
+    "@loopback/testlab": "^1.2.2",
+    "@loopback/tslint-config": "^2.0.4",
+    "@types/node": "^10.11.2",
+    "tslint": "^5.14.0",
+    "typescript": "^3.4.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4"
-  },
-  "dependencies": {
-    "express": "^4.16.4",
-    "next": "^8.0.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
   }
 }
