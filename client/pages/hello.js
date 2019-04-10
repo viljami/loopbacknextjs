@@ -19,7 +19,7 @@ function HelloWorld() {
       `}</style>
       <style global jsx>{`
         body {
-          background: black;
+          background: green;
         }
       `}</style>
     </div>

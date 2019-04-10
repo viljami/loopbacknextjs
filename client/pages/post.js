@@ -1,7 +1,15 @@
+import PropTypes from 'prop-types';
+
 class Post extends React.Component {
+  static defaultProps = {
+    slug: ''
+  };
+
+  static propTypes = {
+    slug: PropTypes.string
+  };
+
   static async getInitialProps({ query }) {
-    console.log('SLUG', query.slug);
-    // this.setState({slug: query.slug});
     return {slug: query.slug};
   }
 
